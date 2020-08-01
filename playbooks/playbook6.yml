@@ -1,0 +1,10 @@
+---
+- name: Installing s/w using global variables
+  hosts: all
+  tasks:
+   - name: Install s/w
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...

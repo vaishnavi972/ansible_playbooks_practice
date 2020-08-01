@@ -1,0 +1,19 @@
+---
+- name: Setup required for jenkinsserver
+  hosts: jenkins
+  tasks:
+   - name: Install necessary s/w
+     apt:
+      name: "{{item.a}}"
+      state: present
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: openjdk-8-jdk,c: yes}
+      - {a: git,c: no}
+      - {a: maven,c: no}
+   - name: Download jenkins.war
+     get_url:
+      url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+      dest: /home/ubuntu
+
+

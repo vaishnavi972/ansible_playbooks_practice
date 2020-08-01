@@ -1,0 +1,7 @@
+---
+- name: call child playbook to install firewalld
+  hosts: all
+  tasks:
+   - name: call child playbook
+     include: playbook24-child.yml
+...

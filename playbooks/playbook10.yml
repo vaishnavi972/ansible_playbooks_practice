@@ -1,0 +1,10 @@
+---
+- name: Installing s/w using group host variable
+  hosts: webserver
+  tasks:
+   - name: Install tree
+     apt:
+      name: "{{f}}"
+      state: "{{g}}"
+      update_cache: "{{h}}"
+...

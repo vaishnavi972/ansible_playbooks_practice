@@ -1,0 +1,12 @@
+---
+- name: Create a user using a group host variable
+  hosts: webserver
+  tasks:
+   - name: Create a user
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      uid: "{{c}}"
+      home: "{{d}}"
+      shell: "{{e}}"
+...

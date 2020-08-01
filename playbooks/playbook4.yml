@@ -1,0 +1,16 @@
+---
+- name: Copy file from one managed node to another managed node
+  hosts: 172.31.30.28
+  tasks:
+  - name: Fetch file from Server1 to Controller
+    fetch:
+     src: file444
+     dest: /tmp
+- name: Copy the fetched file from Server1 to Server2
+  hosts: 172.31.23.102
+  tasks:
+  - name: Copy from Controller to Server2
+    copy:
+     src: /tmp/172.31.30.28/file444
+     dest: /home/ubuntu
+...

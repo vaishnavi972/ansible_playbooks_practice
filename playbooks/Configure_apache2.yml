@@ -1,0 +1,12 @@
+---
+- name: Calling child playbooks using group host scope variables
+  hosts: servers
+  tasks:
+   - name: Call multiple child playbooks
+     include: "{{item}}"
+     with_items:
+      - install_apache2.yml
+      - edit_index.yml
+      - restart_apache2.yml
+
+...

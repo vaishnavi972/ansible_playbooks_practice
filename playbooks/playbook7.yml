@@ -1,0 +1,14 @@
+---
+- name: Create users and create files or directories in users home dir using global variable
+  hosts: all
+  tasks:
+   - name: Create a user
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+   - name: Create a file or directory
+     file:
+      name: "{{d}}"
+      state: "{{e}}"
+...
